@@ -4,12 +4,18 @@ const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
-// Mobile nav
+// Mobile nav (full-screen overlay)
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav');
+const closeNav = () => document.body.classList.remove('nav-open');
 if (burger) {
-  burger.addEventListener('click', () => nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  burger.addEventListener('click', () => {
+    document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', document.body.classList.contains('nav-open'));
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 680) closeNav(); });
 }
 
 // Reveal on scroll
@@ -35,8 +41,8 @@ if (links.length) {
   };
   links.forEach((a, n) => a.addEventListener('click', e => { e.preventDefault(); show(n); lb.classList.add('open'); }));
   lb.querySelector('.x').addEventListener('click', () => lb.classList.remove('open'));
-  lb.querySelector('.prev').addEventListener('click', () => show(i - 1));
-  lb.querySelector('.next').addEventListener('click', () => show(i + 1));
+  lb.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+  lb.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
   lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
