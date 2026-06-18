@@ -25,7 +25,7 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Lightbox gallery
-const links = [...document.querySelectorAll('.gallery a')];
+const links = [...document.querySelectorAll('.gallery a, .gcarousel a')];
 if (links.length) {
   const lb = document.createElement('div');
   lb.className = 'lb';

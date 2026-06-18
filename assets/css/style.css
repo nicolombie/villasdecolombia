@@ -131,6 +131,19 @@ h3{font-size:1.35rem}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .gallery a:hover img{transform:scale(1.05)}
 
+/* Galería por categorías — carruseles compactos */
+.gallery-cats{display:flex;flex-direction:column;gap:24px}
+.gcat-t{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:650;margin:0 0 10px}
+.gcat-t span{color:var(--gold);font-weight:600;margin-left:3px}
+.gcarousel{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;padding:2px 2px 12px;margin:0 -2px;scrollbar-width:thin;scrollbar-color:var(--gold-soft) transparent;-webkit-overflow-scrolling:touch}
+.gcarousel::-webkit-scrollbar{height:7px}
+.gcarousel::-webkit-scrollbar-track{background:transparent}
+.gcarousel::-webkit-scrollbar-thumb{background:var(--gold-soft);border-radius:4px}
+.gcarousel a{flex:0 0 auto;height:230px;border-radius:12px;overflow:hidden;position:relative;display:block;background:var(--sand);scroll-snap-align:start;cursor:zoom-in}
+.gcarousel img{height:100%;width:auto;max-width:none;display:block;object-fit:cover;transition:transform .5s}
+.gcarousel a:hover img{transform:scale(1.06)}
+@media(max-width:680px){.gcarousel a{height:160px;border-radius:10px}.gcat-t{font-size:.74rem}}
+
 /* Lightbox */
 .lb{position:fixed;inset:0;background:rgba(15,22,18,.95);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:30px}
 .lb.open{display:flex}
