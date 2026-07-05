@@ -226,6 +226,16 @@ h3{font-size:1.35rem}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{margin-top:12px;color:var(--ink-soft);font-size:.95rem}
 
+/* ===== Tabla comparativa ===== */
+.cmp{max-width:860px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp table{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:.95rem}
+.cmp th,.cmp td{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(34,48,42,.08);vertical-align:top}
+.cmp thead th{background:var(--green);color:#fff;font-weight:650}
+.cmp tbody th{font-weight:650;color:var(--ink);width:26%}
+.cmp td{color:var(--ink-soft)}
+.cmp tr:last-child td,.cmp tr:last-child th{border-bottom:none}
+.cmp a{color:var(--green);font-weight:600}
+
 /* ===== Reveal animation ===== */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
